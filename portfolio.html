@@ -90,6 +90,8 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
     padding: 8rem 4rem 4rem;
     position: relative;
     overflow: hidden;
@@ -106,6 +108,62 @@
   }
 
   .hero-content { max-width: 680px; position: relative; z-index: 1; }
+
+  .hero-panel {
+    position: relative;
+    z-index: 1;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 3rem;
+    border-left: 0.5px solid var(--border);
+  }
+
+  .hero-stat { display: flex; flex-direction: column; gap: 0.3rem; }
+
+  .hero-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero-stack { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .hero-stack-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-stack-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  .hero-stack-tag {
+    font-size: 0.8rem;
+    color: var(--cream-muted);
+    border: 0.5px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+  }
+
+  .hero-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cream-muted);
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+  }
 
   .hero-tag {
     display: inline-block;
@@ -232,9 +290,24 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    grid-template-columns: 220px 1fr 1fr;
+    gap: 3rem;
     align-items: start;
+  }
+
+  .about-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 0.5px solid var(--border);
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .about-text p {
@@ -461,7 +534,9 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     #hero, section { padding: 5rem 1.5rem 4rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-photo { width: 160px; height: 160px; }
+    .hero-panel { display: none; }
     footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
     .hero-scroll { display: none; }
   }
@@ -494,12 +569,28 @@
       <a href="#contact" class="btn-ghost">Hablemos</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    scroll
+
+  <div class="hero-panel">
+    <div class="hero-stat">
+      <span class="hero-stat-num">4</span>
+      <span class="hero-stat-label">Proyectos publicados</span>
+    </div>
+    <div class="hero-stack">
+      <span class="hero-stack-label">Stack principal</span>
+      <div class="hero-stack-tags">
+        <span class="hero-stack-tag">Python</span>
+        <span class="hero-stack-tag">JavaScript</span>
+        <span class="hero-stack-tag">Java</span>
+        <span class="hero-stack-tag">SQL</span>
+        <span class="hero-stack-tag">React</span>
+        <span class="hero-stack-tag">FastAPI</span>
+      </div>
+    </div>
+    <div class="hero-quote">
+      "El mejor software es el que el usuario ni nota, porque simplemente funciona."
+    </div>
   </div>
 </section>
-
 <!-- ABOUT -->
 <section id="about">
   <div class="section-header">
@@ -508,6 +599,9 @@
     <div class="section-line"></div>
   </div>
   <div class="about-grid reveal">
+    <div class="about-photo">
+      <img src="foto.jpg" alt="José María Merchán Martos">
+    </div>
     <div class="about-text">
       <p>
         Soy <strong>José María Merchán Martos</strong>, desarrollador de software con base en Málaga.
@@ -621,12 +715,19 @@
 
     <div class="project-card reveal" style="transition-delay:0.3s">
       <span class="project-num">04</span>
-      <h3>Próximamente: TPV Hostelería</h3>
-      <p>Sistema de punto de venta para bares y restaurantes. Gestión de mesas, comandas en tiempo real y cierre de caja. Pensado para negocios locales.</p>
+      <h3>TPV Automation</h3>
+      <p>Sistema de punto de venta full-stack para pequeños comercios, con automatización de inventario y reportes. Backend en FastAPI con autenticación JWT, control de acceso por roles y más de 100 tests automatizados con TDD. Frontend en React + TypeScript con interfaz de venta optimizada para uso real en caja.</p>
       <div class="project-tech">
-        <span class="tech-badge">JavaScript</span>
-        <span class="tech-badge">Python</span>
-        <span class="tech-badge">SQL</span>
+        <span class="tech-badge">FastAPI</span>
+        <span class="tech-badge">React + TS</span>
+        <span class="tech-badge">SQLAlchemy</span>
+        <span class="tech-badge">pytest</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/josemerchan712/tpv-automation" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub
+        </a>
       </div>
     </div>
 
