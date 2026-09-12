@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "links": {
+      "about": "Sobre mí",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    }
+  },
+  "hero": {
+    "tag": "Desarrollador de software · Málaga",
+    "headline": {
+      "line1": "Construyo",
+      "emphasis": "soluciones",
+      "line2": "que funcionan."
+    },
+    "meta": {
+      "location": "Málaga, España",
+      "workMode": "Remoto / Híbrido / Presencial",
+      "availability": "Disponibilidad inmediata",
+      "jobSearch": "En búsqueda de mi primer puesto en desarrollo",
+      "english": "Inglés B1 (técnico)"
+    },
+    "sub": "Desarrollo aplicaciones web y de escritorio enfocadas en automatizar procesos reales para negocios. Código limpio, resultados concretos.",
+    "cta": {
+      "projects": "Ver proyectos",
+      "contact": "Hablemos"
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "paragraph1": {
+      "pre": "Soy ",
+      "post": ", desarrollador de software con base en Málaga. Trabajo en el desarrollo de aplicaciones web, móviles y de escritorio, combinando buenas prácticas de ingeniería con un enfoque centrado en resolver problemas reales."
+    },
+    "paragraph2": {
+      "pre": "Me interesa especialmente la ",
+      "strong": "automatización de procesos",
+      "post": " y la creación de herramientas que aporten valor desde el primer día. Cuido tanto la arquitectura del código como la experiencia final del usuario."
+    },
+    "paragraph3": "Actualmente disponible para proyectos freelance y posiciones como desarrollador.",
+    "skills": {
+      "frontendLabel": "Frontend",
+      "backendLabel": "Backend & datos",
+      "toolsLabel": "Herramientas"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "statusComplete": "Proyecto completo — código en GitHub",
+    "viewDemo": "Ver demo",
+    "portfolio": {
+      "why": "Mi primera pieza pensada como carta de presentación: quería demostrar los fundamentos (HTML, CSS y JavaScript sin frameworks) antes de dar el salto a stacks más complejos.",
+      "description": "Mi web de presentación profesional. Diseño oscuro con animaciones CSS, scroll reveal y navegación fija. Desarrollado completamente en HTML, CSS y JavaScript puro, sin frameworks."
+    },
+    "owlSm": {
+      "why": "Quería explorar cómo la IA puede ayudar a estructurar y priorizar tareas complejas dentro de una app real, no solo como ejercicio académico.",
+      "description": "App Android contra la procrastinación desarrollada como TFG. Incluye gestión de tareas, bloqueador de aplicaciones, IA que desglosa tareas grandes en subtareas, apartado social y una mascota virtual que crece al subir de nivel."
+    },
+    "cycleando": {
+      "why": "Mi primer encargo freelance real, de principio a fin: de la reunión con el cliente al despliegue en producción.",
+      "description": "Propuesta de web para una empresa local de Málaga dedicada a la reparación de bicis y patinetes. Diseño moderno, responsive y orientado a captar clientes online."
+    },
+    "tpvAutomation": {
+      "why": "Quería demostrar disciplina de ingeniería más allá de que \"el código funcione\": lo construí con TDD pensando en la fiabilidad que exige un sistema de punto de venta real.",
+      "description": "Sistema de punto de venta full-stack para pequeños comercios, con automatización de inventario y reportes. Backend en FastAPI con autenticación JWT, control de acceso por roles y más de 100 tests automatizados con TDD. Frontend en React + TypeScript con interfaz de venta optimizada para uso real en caja.",
+      "metric": "100+ tests automatizados (TDD)"
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "intro": "¿Tienes un proyecto en mente o buscas un desarrollador para tu equipo? Estoy disponible para hablar sobre oportunidades freelance o empleo."
+  },
+  "footer": {
+    "tagline": "Diseñado y desarrollado por mí"
+  }
+}

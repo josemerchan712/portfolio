@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "links": {
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "tag": "Software Developer · Málaga",
+    "headline": {
+      "line1": "I build",
+      "emphasis": "solutions",
+      "line2": "that work."
+    },
+    "meta": {
+      "location": "Málaga, Spain",
+      "workMode": "Remote / Hybrid / On-site",
+      "availability": "Available immediately",
+      "jobSearch": "Looking for my first developer role",
+      "english": "English B1 (technical)"
+    },
+    "sub": "I build web and desktop applications focused on automating real business processes. Clean code, real results.",
+    "cta": {
+      "projects": "View projects",
+      "contact": "Let's talk"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "paragraph1": {
+      "pre": "I'm ",
+      "post": ", a software developer based in Málaga. I work on web, mobile, and desktop applications, combining solid engineering practices with a focus on solving real problems."
+    },
+    "paragraph2": {
+      "pre": "I'm especially interested in ",
+      "strong": "process automation",
+      "post": " and building tools that deliver value from day one. I care as much about the code's architecture as I do about the end user's experience."
+    },
+    "paragraph3": "Currently available for freelance projects and developer positions.",
+    "skills": {
+      "frontendLabel": "Frontend",
+      "backendLabel": "Backend & Data",
+      "toolsLabel": "Tools"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "statusComplete": "Completed project — code on GitHub",
+    "viewDemo": "View demo",
+    "portfolio": {
+      "why": "My first project built as a personal showcase: I wanted to nail the fundamentals (HTML, CSS, and JavaScript with no frameworks) before moving on to more complex stacks.",
+      "description": "My professional presentation site. Dark design with CSS animations, scroll reveal, and a fixed nav bar. Built entirely with plain HTML, CSS, and JavaScript, no frameworks."
+    },
+    "owlSm": {
+      "why": "I wanted to explore how AI can help structure and prioritize complex tasks inside a real app, not just as an academic exercise.",
+      "description": "An Android app against procrastination, built as my final degree project. Includes task management, an app blocker, AI that breaks big tasks into subtasks, a social section, and a virtual pet that grows as you level up."
+    },
+    "cycleando": {
+      "why": "My first real freelance job, start to finish: from the client meeting to the production deploy.",
+      "description": "A website proposal for a local Málaga business that repairs bikes and scooters. Modern, responsive design built to bring in customers online."
+    },
+    "tpvAutomation": {
+      "why": "I wanted to prove engineering discipline beyond \"the code works\": I built it with TDD, with the reliability a real point-of-sale system demands in mind.",
+      "description": "A full-stack point-of-sale system for small businesses, with inventory automation and reporting. FastAPI backend with JWT auth, role-based access control, and 100+ automated tests built with TDD. React + TypeScript frontend with a checkout UI optimized for real-world register use.",
+      "metric": "100+ automated tests (TDD)"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Have a project in mind, or looking for a developer for your team? I'm available to talk about freelance opportunities or full-time roles."
+  },
+  "footer": {
+    "tagline": "Designed and developed by me"
+  }
+}
