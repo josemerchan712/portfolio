@@ -5,7 +5,7 @@ const PROJECTS = [
     why: 'Mi primera pieza pensada como carta de presentación: quería demostrar los fundamentos (HTML, CSS y JavaScript sin frameworks) antes de dar el salto a stacks más complejos.',
     description: 'Mi web de presentación profesional. Diseño oscuro con animaciones CSS, scroll reveal y navegación fija. Desarrollado completamente en HTML, CSS y JavaScript puro, sin frameworks.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    metric: '1.07 MB → 147 KB de JS en producción (-86%) tras eliminar Three.js y GSAP',
+    metric: null,
     github: 'https://github.com/josemerchan712/portfolio',
     demo: 'https://josemerchan712.github.io/portfolio/',
   },

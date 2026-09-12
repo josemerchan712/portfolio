@@ -314,7 +314,7 @@ h2 {
   line-height: 1.6;
 }
 
-.project-why {
+.project-card p.project-why {
   font-size: 0.88rem;
   color: var(--gold-light);
   font-style: italic;

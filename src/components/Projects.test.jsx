@@ -11,10 +11,10 @@ describe('Projects', () => {
     expect(screen.getByText(/Quería demostrar disciplina de ingeniería/)).toBeInTheDocument();
   });
 
-  it('renders the metric badge for TPV Automation and Portfolio personal', () => {
+  it('renders the metric badge only for TPV Automation', () => {
     render(<Projects />);
     expect(screen.getByText('100+ tests automatizados (TDD)')).toBeInTheDocument();
-    expect(screen.getByText('1.07 MB → 147 KB de JS en producción (-86%) tras eliminar Three.js y GSAP')).toBeInTheDocument();
+    expect(screen.queryByText(/1.07 MB/)).not.toBeInTheDocument();
   });
 
   it('shows "Ver demo" as the primary link and GitHub as secondary when a demo exists', () => {
