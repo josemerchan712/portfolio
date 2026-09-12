@@ -1,15 +1,16 @@
+import { useTranslation } from '../i18n/useTranslation';
+
 export function Contact() {
+  const t = useTranslation();
+
   return (
     <section id="contact">
       <div className="section-header" style={{ justifyContent: 'center', textAlign: 'center', flexDirection: 'column', gap: '0.5rem' }}>
         <span className="section-num">03</span>
-        <h2>Contacto</h2>
+        <h2>{t.contact.title}</h2>
       </div>
       <div className="contact-inner reveal">
-        <p className="contact-intro">
-          ¿Tienes un proyecto en mente o buscas un desarrollador para tu equipo?
-          Estoy disponible para hablar sobre oportunidades freelance o empleo.
-        </p>
+        <p className="contact-intro">{t.contact.intro}</p>
         <a href="mailto:josemerchanmartos@gmail.com" className="contact-email">
           josemerchanmartos@gmail.com
         </a>
