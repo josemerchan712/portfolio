@@ -86,14 +86,6 @@ nav {
 
 .hero-content { max-width: 680px; position: relative; z-index: 1; }
 
-.hero-canvas-wrap {
-  position: relative;
-  z-index: 1;
-  width: 45%;
-  min-height: 480px;
-  flex-shrink: 0;
-}
-
 .hero-tag {
   display: inline-block;
   font-size: 0.75rem;
@@ -412,6 +404,5 @@ footer span { letter-spacing: 0.05em; }
   #hero, section { padding: 5rem 1.5rem 4rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { width: 160px; height: 160px; }
-  .hero-canvas-wrap { display: none; }
   footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
 }
