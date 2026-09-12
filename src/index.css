@@ -73,6 +73,44 @@ nav {
 }
 .nav-links a:hover { color: var(--gold-light); }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.language-toggle {
+  display: flex;
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.lang-option {
+  background: transparent;
+  border: none;
+  color: var(--cream-muted);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  font-family: inherit;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-option:not(.lang-option-active):hover { color: var(--gold-light); }
+
+.lang-option-active {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.lang-option:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
 #hero {
   min-height: 100vh;
   display: flex;

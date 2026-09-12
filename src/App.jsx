@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { LanguageProvider } from './i18n/LanguageContext';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -32,13 +33,13 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
       <Nav />
       <Hero />
       <About />
       <Projects />
       <Contact />
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }
