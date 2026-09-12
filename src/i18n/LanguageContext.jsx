@@ -1,22 +1,31 @@
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
 const STORAGE_KEY = 'portfolio-lang';
 const LanguageContext = createContext(null);
 
 function readStoredLanguage() {
-  const stored = typeof localStorage !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
-  return stored === 'es' || stored === 'en' ? stored : 'es';
+  try {
+    const stored = typeof localStorage !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
+    return stored === 'es' || stored === 'en' ? stored : 'es';
+  } catch {
+    return 'es';
+  }
 }
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(readStoredLanguage);
 
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch {
+      // ignore storage errors (e.g. Safari private browsing)
+    }
+  }, [lang]);
+
   const toggleLanguage = useCallback(() => {
-    setLang((current) => {
-      const next = current === 'es' ? 'en' : 'es';
-      localStorage.setItem(STORAGE_KEY, next);
-      return next;
-    });
+    setLang((current) => (current === 'es' ? 'en' : 'es'));
   }, []);
 
   return (

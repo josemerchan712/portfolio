@@ -28,5 +28,6 @@ describe('LanguageToggle', () => {
     render(<LanguageProvider><LanguageToggle /></LanguageProvider>);
     fireEvent.click(screen.getByRole('button', { name: 'ES' }));
     expect(screen.getByRole('button', { name: 'ES' })).toHaveAttribute('aria-pressed', 'true');
+    expect(localStorage.getItem('portfolio-lang')).toBe('es');
   });
 });
