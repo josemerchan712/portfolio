@@ -8,21 +8,16 @@ Vite 5 + React 18 SPA deployed to GitHub Pages.
 ## Stack
 
 - **Build:** Vite 5, React 18
-- **3D:** React Three Fiber 8, Drei 9, Three.js 0.165
-- **Animation:** GSAP 3.12 + ScrollTrigger, @gsap/react 2
 - **Tests:** Vitest + @testing-library/react
 
 ## Key rules
 
-- `prefers-reduced-motion` must be checked before any animation. Use `useReducedMotion()` from `src/hooks/useReducedMotion.js`.
-- No GLTF or external 3D assets — geometry is primitive Three.js only.
 - All CSS lives in `src/index.css` as a single global file. Do not create CSS modules.
 - `foto.jpg` is a static asset at `public/foto.jpg`, served at `/foto.jpg`.
-- The 3D scene (`src/components/scene/`) is lazy-loaded. Do not import scene components outside of `HeroScene.jsx` eager-loaded paths.
 
-## Scroll architecture
+## Discarded direction: 3D hero scene
 
-`Hero.jsx` owns all ScrollTrigger instances. Camera progress and canvas fade progress are communicated to the Three.js scene via the mutable `scrollState` object in `src/components/scene/scrollState.js` — not via React state, to avoid re-renders.
+A React Three Fiber + GSAP isometric desk scene was explored as a hero centerpiece (2026-06-30) and fully removed (2026-09-12): the experiment ended up replacing the hero's headline and CTA with a full-viewport canvas and no text, which conflicts with this portfolio's core goal — a recruiter should understand who José is within seconds. If a technical differentiator is revisited, design it to sit alongside the hero text, not replace it.
 
 ## Running the project
 
@@ -35,5 +30,4 @@ npm run preview  # preview production build
 
 ## Design references
 
-- `DESIGN_NOTES.md` — full design decisions (palette, typography, scene concept, interaction spec)
-- `docs/superpowers/plans/2026-06-30-portfolio-3d-redesign.md` — implementation plan
+- `docs/superpowers/specs/2026-09-12-portfolio-recruiter-focus-design.md` — hero metadata bar, project case-study cards, demo/repo link hierarchy
