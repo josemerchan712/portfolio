@@ -1,41 +1,35 @@
+import { useTranslation } from '../i18n/useTranslation';
+
 const PROJECTS = [
   {
+    id: 'portfolio',
     num: '01',
     title: 'Portfolio personal',
-    why: 'Mi primera pieza pensada como carta de presentación: quería demostrar los fundamentos (HTML, CSS y JavaScript sin frameworks) antes de dar el salto a stacks más complejos.',
-    description: 'Mi web de presentación profesional. Diseño oscuro con animaciones CSS, scroll reveal y navegación fija. Desarrollado completamente en HTML, CSS y JavaScript puro, sin frameworks.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    metric: null,
     github: 'https://github.com/josemerchan712/portfolio',
     demo: 'https://josemerchan712.github.io/portfolio/',
   },
   {
+    id: 'owlSm',
     num: '02',
     title: 'OWL SM',
-    why: 'Quería explorar cómo la IA puede ayudar a estructurar y priorizar tareas complejas dentro de una app real, no solo como ejercicio académico.',
-    description: 'App Android contra la procrastinación desarrollada como TFG. Incluye gestión de tareas, bloqueador de aplicaciones, IA que desglosa tareas grandes en subtareas, apartado social y una mascota virtual que crece al subir de nivel.',
     tech: ['Java', 'Android Studio', 'Gemini API'],
-    metric: null,
     github: 'https://github.com/josemerchan712/OWL-SM',
     demo: null,
   },
   {
+    id: 'cycleando',
     num: '03',
     title: 'Cycleando',
-    why: 'Mi primer encargo freelance real, de principio a fin: de la reunión con el cliente al despliegue en producción.',
-    description: 'Propuesta de web para una empresa local de Málaga dedicada a la reparación de bicis y patinetes. Diseño moderno, responsive y orientado a captar clientes online.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    metric: null,
     github: 'https://github.com/josemerchan712/cycleando',
     demo: 'https://cycleando-nueva.netlify.app/',
   },
   {
+    id: 'tpvAutomation',
     num: '04',
     title: 'TPV Automation',
-    why: 'Quería demostrar disciplina de ingeniería más allá de que "el código funcione": lo construí con TDD pensando en la fiabilidad que exige un sistema de punto de venta real.',
-    description: 'Sistema de punto de venta full-stack para pequeños comercios, con automatización de inventario y reportes. Backend en FastAPI con autenticación JWT, control de acceso por roles y más de 100 tests automatizados con TDD. Frontend en React + TypeScript con interfaz de venta optimizada para uso real en caja.',
     tech: ['FastAPI', 'React + TS', 'SQLAlchemy', 'pytest'],
-    metric: '100+ tests automatizados (TDD)',
     github: 'https://github.com/josemerchan712/tpv-automation',
     demo: null,
   },
@@ -60,43 +54,48 @@ function ExternalIcon() {
 }
 
 export function Projects() {
+  const t = useTranslation();
+
   return (
     <section id="projects">
       <div className="section-header">
         <span className="section-num">02</span>
-        <h2>Proyectos</h2>
+        <h2>{t.projects.title}</h2>
         <div className="section-line"></div>
       </div>
       <div className="projects-grid">
-        {PROJECTS.map((p, i) => (
-          <div key={p.num} className="project-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-            <span className="project-num">{p.num}</span>
-            <h3>{p.title}</h3>
-            <p className="project-why">{p.why}</p>
-            {p.metric && <span className="project-metric">{p.metric}</span>}
-            <p>{p.description}</p>
-            <div className="project-tech">
-              {p.tech.map(t => <span key={t} className="tech-badge">{t}</span>)}
-            </div>
-            {!p.demo && <span className="project-status">Proyecto completo — código en GitHub</span>}
-            <div className="project-links">
-              {p.demo ? (
-                <>
-                  <a href={p.demo} target="_blank" rel="noreferrer" className="project-link-primary">
-                    <ExternalIcon /> Ver demo
-                  </a>
+        {PROJECTS.map((p, i) => {
+          const content = t.projects[p.id];
+          return (
+            <div key={p.num} className="project-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+              <span className="project-num">{p.num}</span>
+              <h3>{p.title}</h3>
+              <p className="project-why">{content.why}</p>
+              {content.metric && <span className="project-metric">{content.metric}</span>}
+              <p>{content.description}</p>
+              <div className="project-tech">
+                {p.tech.map(tech => <span key={tech} className="tech-badge">{tech}</span>)}
+              </div>
+              {!p.demo && <span className="project-status">{t.projects.statusComplete}</span>}
+              <div className="project-links">
+                {p.demo ? (
+                  <>
+                    <a href={p.demo} target="_blank" rel="noreferrer" className="project-link-primary">
+                      <ExternalIcon /> {t.projects.viewDemo}
+                    </a>
+                    <a href={p.github} target="_blank" rel="noreferrer" className="project-link">
+                      <GithubIcon /> GitHub
+                    </a>
+                  </>
+                ) : (
                   <a href={p.github} target="_blank" rel="noreferrer" className="project-link">
                     <GithubIcon /> GitHub
                   </a>
-                </>
-              ) : (
-                <a href={p.github} target="_blank" rel="noreferrer" className="project-link">
-                  <GithubIcon /> GitHub
-                </a>
-              )}
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
