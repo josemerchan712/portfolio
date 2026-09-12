@@ -1,22 +1,23 @@
+import { useTranslation } from '../i18n/useTranslation';
+
 export function HeroContent() {
+  const t = useTranslation();
+
   return (
     <div className="hero-content">
-      <span className="hero-tag">Desarrollador de software · Málaga</span>
-      <h1>Construyo<br /><em>soluciones</em><br />que funcionan.</h1>
+      <span className="hero-tag">{t.hero.tag}</span>
+      <h1>{t.hero.headline.line1}<br /><em>{t.hero.headline.emphasis}</em><br />{t.hero.headline.line2}</h1>
       <div className="hero-meta">
-        <span className="meta-chip">Málaga, España</span>
-        <span className="meta-chip">Remoto / Híbrido / Presencial</span>
-        <span className="meta-chip">Disponibilidad inmediata</span>
-        <span className="meta-chip">En búsqueda de mi primer puesto en desarrollo</span>
-        <span className="meta-chip">Inglés B1 (técnico)</span>
+        <span className="meta-chip">{t.hero.meta.location}</span>
+        <span className="meta-chip">{t.hero.meta.workMode}</span>
+        <span className="meta-chip">{t.hero.meta.availability}</span>
+        <span className="meta-chip">{t.hero.meta.jobSearch}</span>
+        <span className="meta-chip">{t.hero.meta.english}</span>
       </div>
-      <p className="hero-sub">
-        Desarrollo aplicaciones web y de escritorio enfocadas en automatizar procesos reales para negocios.
-        Código limpio, resultados concretos.
-      </p>
+      <p className="hero-sub">{t.hero.sub}</p>
       <div className="hero-cta">
-        <a href="#projects" className="btn-primary">Ver proyectos</a>
-        <a href="#contact" className="btn-ghost">Hablemos</a>
+        <a href="#projects" className="btn-primary">{t.hero.cta.projects}</a>
+        <a href="#contact" className="btn-ghost">{t.hero.cta.contact}</a>
       </div>
     </div>
   );
