@@ -208,6 +208,7 @@ h1 em {
   transition: background 0.2s, transform 0.15s;
 }
 .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-primary:active { transform: translateY(0); }
 
 .btn-ghost {
   border: 0.5px solid var(--border);
@@ -221,6 +222,7 @@ h1 em {
   transition: border-color 0.2s, color 0.2s, transform 0.15s;
 }
 .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+.btn-ghost:active { transform: translateY(0); }
 
 section { padding: 7rem 4rem; position: relative; z-index: 1; }
 
@@ -266,6 +268,7 @@ h2 {
   border-radius: 4px;
   overflow: hidden;
   border: 0.5px solid var(--border);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 16px 32px -16px rgba(0,0,0,0.6);
 }
 
 .about-photo img {
@@ -308,20 +311,23 @@ h2 {
 }
 .skill-tag:hover { background: rgba(201,168,76,0.15); color: var(--cream); }
 
+#projects { padding-top: 8rem; padding-bottom: 8rem; }
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .project-card {
-  background: var(--navy-mid);
+  background: var(--navy-soft);
   border: 0.5px solid var(--border);
   border-radius: 4px;
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.25s, transform 0.25s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 16px 32px -16px rgba(0,0,0,0.6);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   cursor: default;
 }
 
@@ -335,8 +341,13 @@ h2 {
   transition: opacity 0.25s;
 }
 
-.project-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); }
+.project-card:hover {
+  border-color: rgba(201,168,76,0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 24px 40px -16px rgba(0,0,0,0.65);
+}
 .project-card:hover::before { opacity: 1; }
+.project-card:active { transform: translateY(-1px); }
 
 .project-num {
   font-family: 'DM Serif Display', serif;
@@ -443,6 +454,7 @@ h2 {
   transition: background 0.2s, transform 0.15s;
 }
 .project-link-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.project-link-primary:active { transform: translateY(0); }
 .project-link-primary svg {
   width: 14px; height: 14px;
   stroke: currentColor;
@@ -452,7 +464,7 @@ h2 {
   stroke-linejoin: round;
 }
 
-#contact { background: var(--navy-mid); text-align: center; }
+#contact { background: var(--navy-mid); text-align: center; padding-top: 5.5rem; padding-bottom: 5.5rem; }
 
 .contact-inner { max-width: 580px; margin: 0 auto; }
 
@@ -522,6 +534,7 @@ footer span { letter-spacing: 0.05em; }
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   #hero, section { padding: 5rem 1.5rem 4rem; }
+  #projects, #contact { padding-top: 5rem; padding-bottom: 4rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { width: 160px; height: 160px; }
   footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
