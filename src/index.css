@@ -15,6 +15,8 @@
   --signal-light: #93d4b8;
   --signal-border: rgba(111,191,158,0.45);
   --signal-bg: rgba(111,191,158,0.12);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 html { scroll-behavior: smooth; }
@@ -168,7 +170,7 @@ nav {
   padding: 0.3rem 0.9rem;
   border-radius: 2px;
   margin-bottom: 2rem;
-  animation: fadeUp 0.6s ease both;
+  animation: fadeUp 0.6s var(--ease-out) both;
 }
 
 .hero-meta {
@@ -176,7 +178,7 @@ nav {
   flex-wrap: wrap;
   gap: 0.6rem;
   margin: -0.75rem 0 1.5rem;
-  animation: fadeUp 0.6s 0.05s ease both;
+  animation: fadeUp 0.6s 0.05s var(--ease-out) both;
 }
 
 .meta-chip {
@@ -202,7 +204,7 @@ h1 {
   line-height: 1.05;
   color: var(--white);
   margin-bottom: 1.5rem;
-  animation: fadeUp 0.6s 0.1s ease both;
+  animation: fadeUp 0.6s 0.1s var(--ease-out) both;
 }
 
 h1 em {
@@ -216,14 +218,14 @@ h1 em {
   max-width: 520px;
   margin-bottom: 2.5rem;
   font-weight: 300;
-  animation: fadeUp 0.6s 0.2s ease both;
+  animation: fadeUp 0.6s 0.2s var(--ease-out) both;
 }
 
 .hero-cta {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  animation: fadeUp 0.6s 0.3s ease both;
+  animation: fadeUp 0.6s 0.3s var(--ease-out) both;
 }
 
 .btn-primary {
@@ -235,9 +237,11 @@ h1 em {
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 0.04em;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.2s ease, transform 0.2s var(--ease-out);
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+}
 .btn-primary:active { transform: translateY(0); }
 
 .btn-ghost {
@@ -249,9 +253,11 @@ h1 em {
   font-weight: 400;
   font-size: 0.9rem;
   letter-spacing: 0.04em;
-  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease-out);
 }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+}
 .btn-ghost:active { transform: translateY(0); }
 
 section { padding: 7rem 4rem; position: relative; z-index: 1; }
@@ -357,7 +363,7 @@ h2 {
   position: relative;
   overflow: hidden;
   box-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 16px 32px -16px rgba(0,0,0,0.6);
-  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  transition: border-color 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
   cursor: default;
 }
 
@@ -368,15 +374,17 @@ h2 {
   height: 2px;
   background: linear-gradient(90deg, var(--gold), transparent);
   opacity: 0;
-  transition: opacity 0.25s;
+  transition: opacity 0.25s ease;
 }
 
-.project-card:hover {
-  border-color: rgba(201,168,76,0.5);
-  transform: translateY(-4px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 24px 40px -16px rgba(0,0,0,0.65);
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 24px 40px -16px rgba(0,0,0,0.65);
+  }
+  .project-card:hover::before { opacity: 1; }
 }
-.project-card:hover::before { opacity: 1; }
 .project-card:active { transform: translateY(-1px); }
 
 .project-num {
@@ -481,9 +489,11 @@ h2 {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.2s ease, transform 0.2s var(--ease-out);
 }
-.project-link-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+@media (hover: hover) and (pointer: fine) {
+  .project-link-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+}
 .project-link-primary:active { transform: translateY(0); }
 .project-link-primary svg {
   width: 14px; height: 14px;
@@ -555,10 +565,13 @@ footer span { letter-spacing: 0.05em; }
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
 }
 .reveal.visible { opacity: 1; transform: none; }
+
+.project-card.reveal { transform: translateY(12px) scale(0.98); }
+.project-card.reveal.visible { transform: none; }
 
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
@@ -590,4 +603,28 @@ footer span { letter-spacing: 0.05em; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo { width: 160px; height: 160px; }
   footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .hero-tag, .hero-meta, h1, .hero-sub, .hero-cta {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal, .project-card.reveal {
+    transform: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .project-card, .btn-primary, .btn-ghost, .project-link-primary {
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card:hover, .btn-primary:hover, .btn-ghost:hover, .project-link-primary:hover,
+  .project-card:active, .btn-primary:active, .btn-ghost:active, .project-link-primary:active {
+    transform: none;
+  }
 }
