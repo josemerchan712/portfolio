@@ -4,7 +4,9 @@
       "about": "About",
       "projects": "Projects",
       "contact": "Contact"
-    }
+    },
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "tag": "Software Developer · Málaga",
