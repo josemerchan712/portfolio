@@ -26,11 +26,11 @@ describe('Projects', () => {
 
   it('shows "Ver demo" as the primary link and GitHub as secondary when a demo exists', () => {
     renderProjects();
-    const portfolioCard = screen.getByText('Portfolio personal').closest('.project-card');
-    const demoLink = within(portfolioCard).getByRole('link', { name: /Ver demo/ });
+    const cycleandoCard = screen.getByText('Cycleando').closest('.project-card');
+    const demoLink = within(cycleandoCard).getByRole('link', { name: /Ver demo/ });
     expect(demoLink).toHaveClass('project-link-primary');
-    expect(demoLink).toHaveAttribute('href', 'https://josemerchan712.github.io/portfolio/');
-    const githubLink = within(portfolioCard).getByRole('link', { name: /GitHub/ });
+    expect(demoLink).toHaveAttribute('href', 'https://cycleando-nueva.netlify.app/');
+    const githubLink = within(cycleandoCard).getByRole('link', { name: /GitHub/ });
     expect(githubLink).not.toHaveClass('project-link-primary');
   });
 
@@ -43,6 +43,16 @@ describe('Projects', () => {
     expect(links[0]).toHaveTextContent('GitHub');
   });
 
+  it('shows only the GitHub link for Portfolio personal (no self-referential demo)', () => {
+    renderProjects();
+    const portfolioCard = screen.getByText('Portfolio personal').closest('.project-card');
+    expect(portfolioCard).toHaveTextContent('Proyecto completo — código en GitHub');
+    const links = within(portfolioCard).getAllByRole('link');
+    expect(links).toHaveLength(1);
+    expect(links[0]).toHaveTextContent('GitHub');
+    expect(links[0]).not.toHaveClass('project-link-primary');
+  });
+
   it('translates why/description/metric/status/CTA text to English while keeping proper nouns fixed', () => {
     localStorage.setItem('portfolio-lang', 'en');
     renderProjects();
@@ -50,8 +60,11 @@ describe('Projects', () => {
     expect(screen.getByText('100+ automated tests (TDD)')).toBeInTheDocument();
     const owlCard = screen.getByText('OWL SM').closest('.project-card');
     expect(owlCard).toHaveTextContent('Completed project — code on GitHub');
+    const cycleandoCard = screen.getByText('Cycleando').closest('.project-card');
+    expect(within(cycleandoCard).getByRole('link', { name: /View demo/ })).toBeInTheDocument();
+    expect(within(cycleandoCard).getByRole('link', { name: /GitHub/ })).toBeInTheDocument();
     const portfolioCard = screen.getByText('Portfolio personal').closest('.project-card');
-    expect(within(portfolioCard).getByRole('link', { name: /View demo/ })).toBeInTheDocument();
+    expect(within(portfolioCard).queryByRole('link', { name: /View demo/ })).not.toBeInTheDocument();
     expect(within(portfolioCard).getByRole('link', { name: /GitHub/ })).toBeInTheDocument();
   });
 });

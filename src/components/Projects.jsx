@@ -7,7 +7,7 @@ const PROJECTS = [
     title: 'Portfolio personal',
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/josemerchan712/portfolio',
-    demo: 'https://josemerchan712.github.io/portfolio/',
+    demo: null,
   },
   {
     id: 'owlSm',
