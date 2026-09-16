@@ -8,6 +8,7 @@ p1_count: 2
 target_identity: "file:C:\\Users\\X420\\OneDrive\\Escritorio\\portfolio\\full portfolio SPA (Hero\\About\\Projects\\Contact\\Footer)"
 timestamp: 2026-09-16T23-03-05Z
 slug: io-spa-hero-about-projects-contact-footer-8ca5d989
+closed: true
 ---
 # Critique — Portfolio full SPA
 

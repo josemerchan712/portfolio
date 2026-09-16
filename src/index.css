@@ -127,6 +127,11 @@ nav {
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .lang-option:not(.lang-option-active):hover { color: var(--gold-light); }
