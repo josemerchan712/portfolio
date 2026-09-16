@@ -144,10 +144,11 @@ nav {
 .nav-toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -156,7 +157,7 @@ nav {
 
 .nav-toggle-bar {
   display: block;
-  width: 100%;
+  width: 22px;
   height: 1.5px;
   background: var(--cream);
   transition: transform 0.2s, opacity 0.2s;
